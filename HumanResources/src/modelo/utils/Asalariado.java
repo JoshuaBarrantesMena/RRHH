@@ -3,10 +3,10 @@ import modelo.inter.*;
 
 public class Asalariado extends Empleado implements Bonificable {
 
-    private double salarioMensual;
+    private final double salarioMensual;
     private Incentivo politicaDeIncentivo;
       public Asalariado(String cedula, String nombre, double salarioMensual) {
-        //super(cedula, nombre);
+        super(cedula, nombre);
         this.salarioMensual = salarioMensual;
         this.politicaDeIncentivo = new IncentivoPorDesempeno(this.salarioMensual);
     }
