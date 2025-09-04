@@ -8,8 +8,8 @@ public class PorHoras extends Empleado implements Bonificable {
 
     private int horasQuincena;
     private Incentivo politicaDeIncentivo; 
-    public PorHoras(double tarifaHoras, int horasQuincena, String cedula, String nombre, LocalDate fechaIngreso) {
-        super(cedula, nombre, fechaIngreso);
+    public PorHoras(String cedula, String nombre, double tarifaHoras, int horasQuincena) {
+        super(cedula, nombre);
         this.tarifaHoras = tarifaHoras;
         this.horasQuincena = horasQuincena;
         this.politicaDeIncentivo = new IncentivoPorProductividad(80, 25000.0);

@@ -10,8 +10,8 @@ public final class Temporal extends Empleado implements Bonificable {
     private final int diasActivos;
     private Incentivo politicaDeIncentivo; 
 
-    public Temporal(String cedula, String nombre, double tarifaDiaria, int diasActivos, LocalDate fechaIngreso) {
-        super(cedula, nombre, fechaIngreso);
+    public Temporal(String cedula, String nombre, double tarifaDiaria, int diasActivos) {
+        super(cedula, nombre);
         this.tarifaDiaria = tarifaDiaria;
         this.diasActivos = diasActivos;
         this.politicaDeIncentivo = new IncentivoPorApoyo(2500.0);
