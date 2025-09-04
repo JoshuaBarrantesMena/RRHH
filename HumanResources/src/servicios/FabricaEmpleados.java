@@ -32,7 +32,7 @@ public class FabricaEmpleados {
             return new PorHoras(cedula, nombre, tarifaHora, horasQuincena);
         }else if (tipoEmpleado.equalsIgnoreCase("TEMPORAL")){
             return new Temporal(cedula, nombre, tarifaDiaria, diasActivos);
-        } else{
+        } else{ //e
             return new Practicante(cedula, nombre, apoyoQuincena);
         }
     }
