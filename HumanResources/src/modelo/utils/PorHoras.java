@@ -1,5 +1,5 @@
 package modelo.utils;
-import modelo.inter.*;
+import modelo.inter.Bonificable;
 
 public class PorHoras extends Empleado implements Bonificable {
 

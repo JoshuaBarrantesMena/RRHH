@@ -5,7 +5,7 @@ public class IncentivoPorDesempeno implements Incentivo {
         
     private final double salarioBaseParaCalculo;
     
-    public IncentivoPorDesempeño(double salarioMensual) {
+    public IncentivoPorDesempeno(double salarioMensual) {
         this.salarioBaseParaCalculo = salarioMensual;
     }
     
