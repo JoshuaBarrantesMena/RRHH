@@ -1,9 +1,22 @@
-package modelo.utils;
-import modelo.inter.*;
+package modelo.utils; 
+
+import modelo.inter.Incentivo;
 
 public class IncentivoPorApoyo implements Incentivo {
 
-    public double calcularIncentivo(Empleado e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    private final double tarifaBonoPorDia;
+    public IncentivoPorApoyo(double tarifaBonoPorDia) {
+        this.tarifaBonoPorDia = tarifaBonoPorDia;
+    }
+
+    @Override
+    public double calcularIncentivo(Empleado empleado) {
+        
+        if (empleado instanceof Temporal empleadoTemporal) {
+
+            int diasActivos = empleadoTemporal.getDiasActivos();
+            return diasActivos * this.tarifaBonoPorDia;
+        }
+        return 0.0;
     }
 }

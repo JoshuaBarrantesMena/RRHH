@@ -12,7 +12,7 @@ public class PorHoras extends Empleado implements Bonificable {
         super(cedula, nombre, fechaIngreso);
         this.tarifaHoras = tarifaHoras;
         this.horasQuincena = horasQuincena;
-        this.politicaDeIncentivo = new IncentivoPorProductividad(80, 20000.0);
+        this.politicaDeIncentivo = new IncentivoPorProductividad(80, 25000.0);
 
     }
     @Override
