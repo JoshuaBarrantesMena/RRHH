@@ -19,12 +19,13 @@ import servicios.*;
  */
 public class app {
     
-        private static final String RUTA_EMPLEADOS = "data/empleados.csv";
+        private static final String RUTA_EMPLEADOS = "src/data/empleados.csv";
         private static List<Empleado> empleados = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
+        cargarEmpleados();
 
         while (!salir) {
             System.out.println("\n=== SISTEMA DE RECURSOS HUMANOS ===");
@@ -32,7 +33,7 @@ public class app {
             System.out.println("2. Mostrar planilla quincenal");
             System.out.println("3. Exportar planilla a CSV");
             System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
 
             int opcion = sc.nextInt();
             sc.nextLine();
@@ -51,7 +52,6 @@ public class app {
                     break;
             }
         }
-
         sc.close();
     }
 
@@ -64,10 +64,9 @@ public class app {
                 String cedula = datos[1];
                 String nombre = datos[2];
 
-            // Valores por defecto
                 double salarioMensual = 0, tarifaHora = 0, base = 0, porcentaje = 0, ventas = 0, tarifaDiaria = 0, apoyo = 0;
                 int horas = 0, dias = 0;
-
+                
                 switch (tipo.toUpperCase()) {
                     case "ASALARIADO" -> salarioMensual = Double.parseDouble(datos[3]);
                     case "PORHORAS" -> {
@@ -96,7 +95,6 @@ public class app {
 
                 empleados.add(empleado);
             }
-            System.out.println("Empleados cargados correctamente.");
         } catch (Exception e) {
             System.out.println("Error al cargar empleados: " + e.getMessage());
         }
@@ -131,6 +129,55 @@ public class app {
     }
 
     private static void crearEmpleado(Scanner sc) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.print("Tipo de empleado (ASALARIADO, PORHORAS, COMISIONISTA, TEMPORAL, PRACTICANTE): ");
+        String tipo = sc.nextLine();
+        System.out.print("Cédula: ");
+        String cedula = sc.nextLine();
+        System.out.print("Nombre: ");
+        String nombre = sc.nextLine();
+        
+        double salarioMensual = 0, tarifaHora = 0, base = 0, porcentaje = 0, ventas = 0, tarifaDiaria = 0, apoyo = 0;
+                int horas = 0, dias = 0;
+                
+                switch (tipo.toUpperCase()) {
+                    case "ASALARIADO":
+                        System.out.println("Salario mensual: ");
+                        salarioMensual = sc.nextDouble();
+                        break;
+                    case "PORHORAS":
+                        System.out.println("Tarifa por hora: ");
+                        tarifaHora = sc.nextDouble();
+                        System.out.println("Horas: ");
+                        horas = sc.nextInt();
+                        break;
+                    case "TEMPORAL":
+                        System.out.println("Tarifa diaria: ");
+                        tarifaDiaria = sc.nextDouble();
+                        System.out.println("Dias de trabajo: ");
+                        dias = sc.nextInt();
+                        break;
+                    case "COMISIONISTA":
+                        System.out.println("pago base: ");
+                        base = sc.nextDouble();
+                        System.out.println("Porcentaje de ventas: ");
+                        porcentaje = sc.nextDouble();
+                        System.out.println("Valor de ventas por quincena: ");
+                        ventas = sc.nextDouble();
+                        break;
+                    case "PRACTICANTE":
+                        System.out.println("Pago de apoyo: ");
+                        apoyo = sc.nextDouble();
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Tipo de empleado no reconocido: " + tipo);
+                }
+        
+        Empleado empleado = FabricaEmpleados.crearEmpleado(
+                    tipo, cedula, nombre,
+                    salarioMensual, tarifaHora, horas,
+                    base, porcentaje, ventas,
+                    tarifaDiaria, dias, apoyo
+                );
+        empleados.add(empleado);
     }
 }
