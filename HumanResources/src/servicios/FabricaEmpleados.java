@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package servicios;
+import java.time.LocalDate;
 import modelo.utils.*;
 
 /**
@@ -25,13 +26,13 @@ public class FabricaEmpleados {
         double apoyoQuincena){
         
         if (tipoEmpleado.equalsIgnoreCase("ASALARIADO")){
-            return new Asalariado(cedula, nombre, salarioMensual);
+            return new Asalariado(cedula, nombre, salarioMensual, LocalDate.now());
         }else if (tipoEmpleado.equalsIgnoreCase("COMISIONISTA")){
             return new Comisionista(cedula, nombre, base, porcentaje, ventasQuincena);
         }else if (tipoEmpleado.equalsIgnoreCase("PORHORAS")){
-            return new PorHoras(cedula, nombre, tarifaHora, horasQuincena);
+            return new PorHoras(tarifaHora, horasQuincena, cedula, nombre, LocalDate.now());
         }else if (tipoEmpleado.equalsIgnoreCase("TEMPORAL")){
-            return new Temporal(cedula, nombre, tarifaDiaria, diasActivos);
+            return new Temporal(cedula, nombre, tarifaDiaria, diasActivos, LocalDate.now());
         } else{
             return new Practicante(cedula, nombre, apoyoQuincena);
         }
