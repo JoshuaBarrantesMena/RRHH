@@ -4,6 +4,9 @@
  */
 package ui;
 
+import java.util.List;
+import modelo.utils.*;
+
 /**
  *
  * @author keysha
@@ -16,7 +19,7 @@ public class NominaView extends javax.swing.JFrame {
     public NominaView() {
         initComponents();
     }
-
+    private List<Empleado> listaEmpleados;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
