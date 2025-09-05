@@ -121,7 +121,7 @@ public class app {
                 lineas.add(String.format("%s;%s;%.2f;%.2f;%.2f",
                         e.getCedula(), e.getNombre(), salario, bono, salario + bono));
             }
-            RepositorioCSV.escribirLineas("out/planilla_quincena.csv", lineas);
+            RepositorioCSV.escribirLineas("src/out/planilla_quincena.csv", lineas);
             System.out.println("Planilla exportada correctamente.");
         } catch (Exception e) {
             System.out.println("Error al exportar planilla: " + e.getMessage());

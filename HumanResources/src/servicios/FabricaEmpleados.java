@@ -28,7 +28,7 @@ public class FabricaEmpleados {
         if (tipoEmpleado.equalsIgnoreCase("ASALARIADO")){
             return new Asalariado(cedula, nombre, salarioMensual, LocalDate.now());
         }else if (tipoEmpleado.equalsIgnoreCase("COMISIONISTA")){
-            return new Comisionista(cedula, nombre, base, porcentaje, ventasQuincena);
+            return new Comisionista(cedula, nombre, base, porcentaje, ventasQuincena, LocalDate.now());
         }else if (tipoEmpleado.equalsIgnoreCase("PORHORAS")){
             return new PorHoras(tarifaHora, horasQuincena, cedula, nombre, LocalDate.now());
         }else if (tipoEmpleado.equalsIgnoreCase("TEMPORAL")){
