@@ -1,14 +1,14 @@
 package modelo.utils;
 import modelo.inter.*;
-
+import java.time.LocalDate;
 public class Asalariado extends Empleado implements Bonificable {
 
     private final double salarioMensual;
     private Incentivo politicaDeIncentivo;
-      public Asalariado(String cedula, String nombre, double salarioMensual) {
-        super(cedula, nombre);
+      public Asalariado(String cedula, String nombre, double salarioMensual, LocalDate fechaIngreso) {
+        super(cedula, nombre,fechaIngreso);
         this.salarioMensual = salarioMensual;
-        this.politicaDeIncentivo = new IncentivoPorDesempeno(this.salarioMensual);
+        this.politicaDeIncentivo = new IncentivoPorAntiguedad();
     }
     @Override
     public double bono() {
