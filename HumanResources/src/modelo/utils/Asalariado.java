@@ -5,7 +5,7 @@ public class Asalariado extends Empleado implements Bonificable {
 
     private final double salarioMensual;
     private Incentivo politicaDeIncentivo;
-      public Asalariado(String cedula, String nombre, double salarioMensual, LocalDate fechaIngreso) {
+    public Asalariado(String cedula, String nombre, double salarioMensual, LocalDate fechaIngreso) {
         super(cedula, nombre,fechaIngreso);
         this.salarioMensual = salarioMensual;
         this.politicaDeIncentivo = new IncentivoPorAntiguedad();
